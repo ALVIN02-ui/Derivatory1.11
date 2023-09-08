@@ -2,7 +2,7 @@ import React from 'react'
 
 function Account() {
   return (
-    <div>A</div>
+    <div className='text-white'>Account</div>
   )
 }
 

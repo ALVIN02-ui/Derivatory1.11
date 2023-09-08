@@ -58,7 +58,20 @@ function App() {
 
           <div>
             <Routes>
-              {/* Routes */}
+              {/* Home*/}
+              <Route path="/" element={<Dashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/account" element={<Account/>} />
+              <Route path="/reports" element={<Reports />} />
+              {/* Home*/}
+
+              {/* Tools */}
+              <Route path="/datool" element={<Datool />} />
+              <Route path="/evenodd" element={<Evenodd />} />
+              <Route path="/freestrat" element={<Freestrat/>} />
+              <Route path="/inclusivex" element={<Inclusivex />} />
+              <Route path="/overunder" element={<Overunder />} />
+              {/* Tools */}
             </Routes>
           </div>
         </div>
