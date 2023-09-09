@@ -27,9 +27,9 @@ const Sidebar = () => {
   };
 
   const activeLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
-  const normalLink =
-    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
+    `flex items-center gap-5 pl-${open ? "4" : "0"} pt-3 pb-2.5 rounded-lg text-white text-md m-2 custom-hover-bg`;
+    const normalLink =
+    `flex items-center gap-5 pl-${open ? "4" : "0"} pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 m-2 custom-hover-bg`;
 
   return (
     <div
@@ -62,15 +62,15 @@ const Sidebar = () => {
                   onClick={handleCloseSideBar}
                   style={({ isActive }) => ({
                     backgroundColor: isActive ? currentColor : "",
+                    ":hover": { backgroundColor: isActive ? currentColor : "" },
                   })}
                   className={({ isActive }) =>
                     isActive ? activeLink : normalLink
                   }
                 >
-                  <span className={`hover:text-white ${!open && "text-center"}`}>{link.icon}</span>
+                  <span className={`${!open && "text-center"}`}>{link.icon}</span>
                   <span className={`capitalize text-white duration-300  ${!open && "hidden"}`}>{link.name}</span>
                 </NavLink>
-                
               ))}
             </div>
           ))}
@@ -78,14 +78,13 @@ const Sidebar = () => {
         </div>
 
         <div>
-          <div className="flex items-center gap-5 pl-4 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 custom-hover-bg m-2"
-          style={{color: 'currentColor'}}>
+          <div className="flex items-center gap-5 pl-4 pb-2.5 pt-3 rounded-lg text-md text-gray-700 dark:text-gray-200 custom-hover-bg m-2">
             <button 
             onClick={() => setThemeSettings(true)}
             className="flex items-center"
             >
-              <AiFillDashboard  />
-              Settings
+              <span className={`${!open && "text-center"} pr-4`}><MdAccountCircle /></span>
+              <span className={`capitalize text-white duration-300  ${!open && "hidden"}`}>Settings</span>
             </button>
           </div>
         </div>

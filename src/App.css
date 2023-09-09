@@ -1,3 +1,4 @@
- .custom-hover-bg:hover {
+.hover-bg-currentColor:hover {
     background-color: currentColor;
   }
+  
