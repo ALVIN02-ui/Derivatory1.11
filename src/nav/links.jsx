@@ -28,25 +28,70 @@ export const links = [
         title: 'Tools',
         links: [
             {
-                name: 'datool',
+                name: 'digit analysis tool',
                 icon: <TbFileAnalytics />,
             },
             {
-                name: 'evenodd',
+                name: 'free even odd bot',
                 icon: <VscGraph />,
             },
             {
-                name: 'freestrat',
+                name: 'free strategy',
                 icon: <TbCashOff />,
             },
             {
-                name: 'inclusivex',
+                name: 'inclusive x bot',
                 icon: <TbCircleLetterX/>,
             },
             {
-                name: 'overunder',
+                name: 'free over under bot',
                 icon: <TbDeviceAnalytics />,
             },
         ]
+    },
+
+    {
+        title: 'Other',
+        links: [
+            {
+                name: 'about derivatory',
+                icon: <TbFileAnalytics />,
+            },
+            {
+                name: 'help center',
+                icon: <VscGraph />,
+            },
+            {
+                name: 'login',
+                icon: <TbCashOff />,
+            },
+        ]
     }
+];
+
+export const themeColors = [
+    {
+        name: 'blue-theme',
+        color: '#1A97F5',
+    },
+    {
+        name: 'green-theme',
+        color: '#38FF14',
+    },
+    {
+        name: 'purple-theme',
+        color: '#DF00FE',
+    },
+    {
+        name: 'red-theme',
+        color: '#FF1818',
+    },
+    {
+        name: 'indigo-theme',
+        color: '#1E4DB7',
+    },
+    {
+        color: '#FF6700',
+        name: 'orange-theme',
+    },
 ];

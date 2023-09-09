@@ -16,6 +16,10 @@ import Evenodd from "./pages/Tools/Evenodd";
 import Freestrat from "./pages/Tools/Freestrat";
 import Inclusivex from "./pages/Tools/Inclusivex";
 import Overunder from "./pages/Tools/Overunder";
+import ThemeSettings from "./components/ThemeSettings";
+import About from "./pages/Others/About";
+import Help from "./pages/Others/Help";
+import Login from "./pages/Others/Login";
 //Pages
 
 import "./App.css";
@@ -25,7 +29,11 @@ function App() {
     open,
     setOpen,
     screenSize,
-    setScreenSize
+    setScreenSize,
+    themeSettings,
+    setThemeSettings,
+    currentColor,
+    currentMode,
   } = useStateContext();
 
   useEffect(() => {
@@ -57,6 +65,8 @@ function App() {
           </div>
 
           <div>
+            {themeSettings && <ThemeSettings />}
+
             <Routes>
               {/* Home*/}
               <Route path="/" element={<Dashboard />} />
@@ -66,12 +76,18 @@ function App() {
               {/* Home*/}
 
               {/* Tools */}
-              <Route path="/datool" element={<Datool />} />
-              <Route path="/evenodd" element={<Evenodd />} />
-              <Route path="/freestrat" element={<Freestrat/>} />
-              <Route path="/inclusivex" element={<Inclusivex />} />
-              <Route path="/overunder" element={<Overunder />} />
+              <Route path="/digit analysis tool" element={<Datool />} />
+              <Route path="/free even odd bot" element={<Evenodd />} />
+              <Route path="/free strategy" element={<Freestrat/>} />
+              <Route path="/inclusive x bot" element={<Inclusivex />} />
+              <Route path="/free over under bot" element={<Overunder />} />
               {/* Tools */}
+
+              {/* Other */}
+              <Route path="/about" element={<About />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/login" element={<Login/>} />
+              {/* Other */}
             </Routes>
           </div>
         </div>

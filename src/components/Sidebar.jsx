@@ -13,7 +13,8 @@ import { MdAccountCircle} from "react-icons/md";
 import "../App.css";
 
 const Sidebar = () => {
-  const { open, setOpen, screenSize } = useStateContext();
+  const { open, setOpen, screenSize, themeSettings,
+    setThemeSettings } = useStateContext();
 
   const toggleSidebar = () => {
     setOpen(!open);
@@ -24,6 +25,11 @@ const Sidebar = () => {
       setOpen(false);
     }
   };
+
+  const activeLink =
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2";
+  const normalLink =
+    "flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2";
 
   return (
     <div
@@ -53,15 +59,36 @@ const Sidebar = () => {
                   to={`/${link.name}`}
                   key={link.name}
                   onClick={handleCloseSideBar}
-                  className={'flex items-center pt-2'}
+                  style={({ isActive }) => ({
+                    backgroundColor: isActive ? currentColor : "",
+                  })}
+                  className={({ isActive }) =>
+                    isActive ? activeLink : normalLink
+                  }
                 >
                   <span className="text-red-600 text-2xl pr-2">{link.icon}</span>
-                  <span className={`capitalize text-white duration-300  ${!open && "scale-0"}`}>{link.name}</span>
+                  <span className={`capitalize text-white duration-300  ${!open && "hidden"}`}>{link.name}</span>
                 </NavLink>
               ))}
             </div>
           ))}
+
+          <div className="pt-6">
+            <button
+              onClick={() => setThemeSettings(true)}
+              className={"flex"}
+            >
+              <span className="text-red-600 text-2xl pr-2">
+                <BsArrowLeftShort />
+              </span>
+              <span className={`capitalize text-white duration-300 ${!open && "hidden"}`}>
+                Settings
+              </span>
+            </button>
+          </div>
+ 
         </div>
+
       </div>
     </div>
   );
