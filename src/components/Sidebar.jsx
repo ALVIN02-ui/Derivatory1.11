@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { links } from "../nav/links";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 
 //Icons
@@ -13,6 +13,7 @@ import { MdAccountCircle} from "react-icons/md";
 import "../App.css";
 
 const Sidebar = () => {
+
   const { open, setOpen, screenSize, themeSettings,
     setThemeSettings, currentColor } = useStateContext();
 
@@ -27,9 +28,9 @@ const Sidebar = () => {
   };
 
   const activeLink =
-    `flex items-center gap-5 pl-${open ? "4" : "0"} pt-3 pb-2.5 rounded-lg text-white text-md m-2 custom-hover-bg`;
+    `flex items-center gap-5 pl-${open ? "4" : "0"} pt-3 pb-2.5 rounded-lg text-white text-md m-2 `;
     const normalLink =
-    `flex items-center gap-5 pl-${open ? "4" : "0"} pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 m-2 custom-hover-bg`;
+    `flex items-center gap-5 pl-${open ? "4" : "0"} pt-3 pb-2.5 rounded-lg text-md text-gray-700 dark:text-gray-200 m-2`;
 
   return (
     <div
@@ -64,9 +65,7 @@ const Sidebar = () => {
                     backgroundColor: isActive ? currentColor : "",
                     ":hover": { backgroundColor: isActive ? currentColor : "" },
                   })}
-                  className={({ isActive }) =>
-                    isActive ? activeLink : normalLink
-                  }
+                  className={open ? activeLink : normalLink}
                 >
                   <span className={`${!open && "text-center"}`}>{link.icon}</span>
                   <span className={`capitalize text-white duration-300  ${!open && "hidden"}`}>{link.name}</span>
@@ -74,7 +73,7 @@ const Sidebar = () => {
               ))}
             </div>
           ))}
- 
+
         </div>
 
         <div>
