@@ -76,18 +76,6 @@ const Sidebar = () => {
 
         </div>
 
-        <div>
-          <div className="flex items-center gap-5 pl-4 pb-2.5 pt-3 rounded-lg text-md text-gray-700 dark:text-gray-200 custom-hover-bg m-2">
-            <button 
-            onClick={() => setThemeSettings(true)}
-            className="flex items-center"
-            >
-              <span className={`${!open && "text-center"} pr-4`}><MdAccountCircle /></span>
-              <span className={`capitalize text-white duration-300  ${!open && "hidden"}`}>Settings</span>
-            </button>
-          </div>
-        </div>
-
       </div>
     </div>
   );

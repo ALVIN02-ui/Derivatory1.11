@@ -7,6 +7,10 @@ import Navbar from "./components/Navbar";
 import Sidebar from "./components/sidebar";
 //Components
 
+//Icons
+import { FiSettings} from "react-icons/fi";
+//Icons
+
 //Pages
 import Account from "./pages/Account";
 import Dashboard from "./pages/Dashboard";
@@ -60,6 +64,19 @@ function App() {
     <div className="h-screen bg-sidebar">
       <BrowserRouter>
         <div className={`flex relative ${open ? "w-72" : "w-20"}`}>
+          <div className="fixed right-4 bottom-4" style={{ zIndex: "1000" }}>
+
+            <button
+              type="button"
+              className="text-1xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white"
+              style={{ background: currentColor, borderRadius: "50%" }}
+              onClick={() => setThemeSettings(true)}
+            >
+              <FiSettings />
+            </button>
+
+          </div>
+
           <div className="fixed sidebar h-screen border-r border-slate-200">
             <Sidebar />
           </div>
